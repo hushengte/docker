@@ -1,6 +1,6 @@
 FROM nginx:latest
 
-COPY ./conf/* /etc/nginx/conf.d/
-COPY ./html/* /usr/share/nginx/html/
+COPY ./conf/nginx.conf /etc/nginx/nginx.conf
+COPY ./conf/proxy.conf /etc/nginx/proxy.conf
 
-RUN mkdir -p /data/nginx
+COPY ./html/* /usr/share/nginx/html/
