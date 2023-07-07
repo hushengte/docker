@@ -1,6 +1,6 @@
 ### nginx
 docker build -t disciples/nginx:1.0.0 ./nginx
-docker run -v /data/nginx/conf/:/etc/nginx/conf.d -v /data/nginx/logs/:/var/log/nginx -v /data/www/:/data/www -p 80:80 -d disciples/nginx:1.0.0
+docker run -v /data/nginx/conf/:/etc/nginx/conf.d -v /data/nginx/certs/:/etc/nginx/certs -v /data/nginx/logs/:/var/log/nginx -v /data/www/:/data/www -p 80:80 -p 443:443 -d disciples/nginx:1.0.0
 
 ### mysql
 docker build -t disciples/mysql:1.0.0 ./mysql
