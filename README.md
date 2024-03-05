@@ -10,3 +10,10 @@ docker run -v /data/mysql/:/var/lib/mysql -p 33066:3306 -d disciples/mysql:1.0.0
 ### redis
 docker build -t disciples/redis:1.0.0 ./redis
 docker run -v /data/redis/:/data -p 16379:6379 -d disciples/redis:1.0.0
+
+### nexus 
+docker volume create --name nexus-data
+docker run -v nexus-data:/nexus-data -p 7081:8081 -d sonatype/nexus3
+
+docker volume inspect nexus-data
+https://support.sonatype.com/hc/en-us/articles/213464668-Troubleshooting-Artifact-Deployment-Failures
