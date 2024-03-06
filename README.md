@@ -18,6 +18,7 @@ docker run -v nexus-data:/nexus-data -p 7081:8081 -d sonatype/nexus3
 docker volume inspect nexus-data
 https://support.sonatype.com/hc/en-us/articles/213464668-Troubleshooting-Artifact-Deployment-Failures
 
-### nacos  -e MODE=standalone 
+### nacos
 docker build -t disciples/nacos:1.0.0 ./nacos
-docker run -v /data/nacos/:/home/nacos -p 8848:8848 -p 9848:9848 -d nacos/nacos-server:v2.2.0
+docker volume create --name nacos-data
+docker run -e MODE=standalone -v nacos-data:/home/nacos -p 8848:8848 -p 9848:9848 -d disciples/nacos:1.0.0
