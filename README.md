@@ -22,3 +22,5 @@ https://support.sonatype.com/hc/en-us/articles/213464668-Troubleshooting-Artifac
 docker build -t disciples/nacos:1.0.0 ./nacos
 docker volume create --name nacos-data
 docker run -e MODE=standalone -v nacos-data:/home/nacos -p 8848:8848 -p 9848:9848 -d disciples/nacos:1.0.0
+
+docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' [containerId]
